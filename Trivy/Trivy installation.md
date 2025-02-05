@@ -8,7 +8,8 @@ Follow the steps below to install Trivy, a vulnerability scanner for containers 
 sudo apt-get install wget apt-transport-https gnupg lsb-release -y
 
 **Step 2: Add Trivy’s Public Key**
-wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo tee /etc/apt/trusted.gpg.d/trivy.gpg > /dev/null
+
 
 **Step 3: Add Trivy's Repository**
 echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
